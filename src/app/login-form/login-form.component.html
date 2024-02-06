@@ -1,0 +1,18 @@
+<div class="p-grid p-align-center">
+  <div class="p-col" style="text-align: center; display: flex; align-items: center; justify-content: center;">
+    <div class="card" style="width: 300px; height: 300px; display: inline-block;">
+      <form style="padding-top: 100%;">
+        <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">APP-FORM</h2>
+        <div class="p-field">
+          <input id="username" type="text" pInputText placeholder="Usuário" [(ngModel)]="username" name="username" required>
+        </div>
+        <br>
+        <div class="p-field">
+          <input id="password" type="password" pPassword placeholder="Senha" [(ngModel)]="password" name="password" required>
+        </div>
+        <br>
+        <button type="submit" pButton label="Login" (click)="login()" class="p-button-lg"></button>
+      </form>
+    </div>
+  </div>
+</div>
