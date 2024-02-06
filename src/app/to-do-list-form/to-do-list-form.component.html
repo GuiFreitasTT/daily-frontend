@@ -1,0 +1,14 @@
+<div styleClass="user-form" style="text-align: center; display: flex; align-items: center; justify-content: center;">
+  <form novalidate>
+      <div class="field">
+        <label for="title" class="block">Nome da tarefa</label>
+        <input type="text" pInputText [(ngModel)]="model.title" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <div class="field">
+        <label for="description" class="block">Descrição</label>
+        <input type="text" pInputText [(ngModel)]="model.description" [ngModelOptions]="{standalone: true}">
+      </div>
+      <br>
+    <button pButton type="submit" label="Salvar"></button>
+  </form>
+</div>

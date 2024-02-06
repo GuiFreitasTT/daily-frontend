@@ -6,10 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-form.component.css']
 })
 export class HomeFormComponent implements OnInit {
+  menuItems: any[];
+  visible: boolean = false;
 
-  constructor() { }
+  constructor() {
+    this.menuItems = [
+      {
+        label: 'Tarefas',
+        items: [
+            {
+                label: 'Criar nova tarefa',
+                icon: 'pi pi-fw pi-plus',
+                command: () => this.openModal()
+            },
+        ]
+    },
 
-  ngOnInit() {
+    ];
+   }
+
+  ngOnInit() {    
   }
 
+  openModal(){
+    this.visible = true;
+  }
 }

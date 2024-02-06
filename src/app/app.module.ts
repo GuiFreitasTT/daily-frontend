@@ -1,27 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
+import { PanelModule } from 'primeng/panel';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeFormComponent } from './home-form/home-form.component';
+import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.component';
 
 @NgModule({
-  declarations: [		
-    AppComponent,
+  declarations: [			
+      AppComponent,
       LoginFormComponent,
-      HomeFormComponent
+      HomeFormComponent,
+      ToDoListFormComponent
    ],
   imports: [
     BrowserModule,
@@ -32,7 +38,15 @@ import { HomeFormComponent } from './home-form/home-form.component';
     RouterModule,
     ButtonModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    MenubarModule,
+    BrowserAnimationsModule,
+    PanelModule,
+    InputTextareaModule,
+    ReactiveFormsModule,
+    CardModule,
+    DialogModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

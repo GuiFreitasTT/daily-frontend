@@ -1,3 +1,9 @@
-<p>
-  home-form works!
-</p>
+<p-menubar [model]="menuItems"></p-menubar>
+<br>
+<p-panel header="TAREFAS PENDENTES"> 
+</p-panel>
+
+<p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '25vw'}" [modal]="true">
+   <app-to-do-list-form></app-to-do-list-form>
+  </p-dialog>
+  
