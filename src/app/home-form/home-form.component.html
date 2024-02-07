@@ -1,9 +1,14 @@
 <p-menubar [model]="menuItems"></p-menubar>
 <br>
-<p-panel header="TAREFAS PENDENTES"> 
-    <!-- TODO exibir tarefas ao carregar página -->
-</p-panel>
-<p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '25vw'}" [modal]="true">
+<p-panel header="TAREFAS PENDENTES">
+    <div class="card-container">
+      <p-card *ngFor="let task of tasks" class="task-card">
+        <h5>{{ task.title }}</h5>
+        <p>{{ task.description }}</p>
+      </p-card>
+    </div>
+  </p-panel>
+<p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '25vw'}" [modal]="true" (onHide)="loadTasks()">
    <list-form></list-form>
   </p-dialog>
   

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/domain/models/task.model';
+import { TodoListService } from 'src/domain/services/to-do-list.service';
 
 @Component({
   selector: 'app-home-form',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeFormComponent implements OnInit {
   menuItems: any[];
   visible: boolean = false;
+  tasks: any;
 
-  constructor() {
+  constructor(private todoListService: TodoListService) {
     this.menuItems = [
       {
         label: 'Tarefas',
@@ -21,14 +24,25 @@ export class HomeFormComponent implements OnInit {
             },
         ]
     },
-
     ];
    }
 
-  ngOnInit() {    
+  ngOnInit() {   
+    this.loadTasks(); 
   }
 
   openModal(){
     this.visible = true;
+  }
+
+  loadTasks() {
+    this.todoListService.listAll().subscribe(
+      (tasks: Task[]) => {
+        this.tasks = tasks;
+      },
+      error => {
+        console.error('Erro ao buscar as tarefas:', error);
+      }
+    );
   }
 }

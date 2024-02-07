@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -17,6 +19,7 @@ import { PanelModule } from 'primeng/panel';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
+import { MessagesModule } from 'primeng/messages';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeFormComponent } from './home-form/home-form.component';
@@ -45,10 +48,12 @@ import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.compone
     InputTextareaModule,
     ReactiveFormsModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    HttpClientModule,
+    MessagesModule
     
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
