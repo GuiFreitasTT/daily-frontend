@@ -35,6 +35,10 @@ export class HomeFormComponent implements OnInit {
     this.visible = true;
   }
 
+  closeModal(){
+    this.visible = false;
+  }
+
   loadTasks() {
     this.todoListService.listAll().subscribe(
       (tasks: Task[]) => {

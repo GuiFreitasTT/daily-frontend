@@ -20,6 +20,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeFormComponent } from './home-form/home-form.component';
@@ -50,7 +51,8 @@ import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.compone
     CardModule,
     DialogModule,
     HttpClientModule,
-    MessagesModule
+    MessagesModule,
+    ToastModule
     
   ],
   providers: [MessageService],

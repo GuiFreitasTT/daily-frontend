@@ -9,7 +9,6 @@
         <input type="text" pInputText [(ngModel)]="model.description" [ngModelOptions]="{standalone: true}">
       </div>
       <br>
-    <button pButton type="submit" label="Salvar" (click)="save(model)"></button>
+    <button pButton pRipple type="submit" label="Salvar" (click)="save(model)"></button>
   </form>
-  <p-messages [closable]="false"></p-messages>
 </div>

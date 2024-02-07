@@ -8,7 +8,7 @@
       </p-card>
     </div>
   </p-panel>
-<p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '25vw'}" [modal]="true" (onHide)="loadTasks()">
-   <list-form></list-form>
+<p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '30vw'}" [modal]="true" (onHide)="loadTasks()">
+   <list-form (formSave)="closeModal()"></list-form>
   </p-dialog>
   
