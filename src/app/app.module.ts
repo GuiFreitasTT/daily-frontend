@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -51,7 +52,8 @@ import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.compone
     DialogModule,
     HttpClientModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    TooltipModule
     
   ],
   providers: [MessageService, ConfirmationService],

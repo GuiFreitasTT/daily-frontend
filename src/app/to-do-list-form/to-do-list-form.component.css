@@ -1,7 +1,7 @@
 :host >>> .user-form {
-    width: 30%;
-  }
+  width: 30%;
+}
   
-  :host >>> .p-inputtext {
-    width: 100%;
-  }
+:host >>> .p-inputtext {
+  width: 100%;
+}

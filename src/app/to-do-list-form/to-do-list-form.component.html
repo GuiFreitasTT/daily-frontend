@@ -1,14 +1,14 @@
 <div styleClass="user-form">
   <form novalidate *ngIf="task">
-      <div class="field">
-        <label for="title" class="block">Nome da tarefa</label>
-        <input type="text" pInputText [(ngModel)]="task.title" [ngModelOptions]="{standalone: true}"/>
-      </div>
-      <div class="field">
-        <label for="description" class="block">Descrição</label>
-        <input type="text" pInputText [(ngModel)]="task.description" [ngModelOptions]="{standalone: true}">
-      </div>
-      <br>
+    <div class="field">
+      <label for="title" class="block">Nome da tarefa</label>
+      <input type="text" pInputText [(ngModel)]="task.title" name="title" style="margin-top: 5px; margin-bottom: 5px;"/>
+    </div>
+    <div class="field">
+      <label for="description" class="block">Descrição</label>
+      <input type="text" pInputText [(ngModel)]="task.description" name="description" style="margin-top: 5px; margin-bottom: 5px;">
+    </div>
+    <br>
     <button pButton pRipple type="submit" label="Salvar" (click)="save(task)"></button>
   </form>
 </div>

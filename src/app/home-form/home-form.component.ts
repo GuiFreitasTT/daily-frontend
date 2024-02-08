@@ -12,20 +12,17 @@ export class HomeFormComponent implements OnInit {
   menuItems: any[];
   visible: boolean = false;
   isEdit: boolean = false;
+  deleted: boolean = false;
   tasks: any;
   selectedTask!: Task;
+  selectedTaskForDelete!: Task;
 
   constructor(private todoListService: TodoListService, private messageService: MessageService) {
     this.menuItems = [
       {
-        label: 'Tarefas',
-        items: [
-            {
-                label: 'Criar nova tarefa',
-                icon: 'pi pi-fw pi-plus',
-                command: () => this.openModal()
-            },
-        ]
+        label: 'Criar nova tarefa',
+        icon: 'pi pi-fw pi-plus',
+        command: () => this.openModal()
     },
     ];
    }
@@ -60,6 +57,7 @@ export class HomeFormComponent implements OnInit {
   }
 
   delete(task: Task){
+    this.deleted = true;
     if(task.id !== undefined){
       this.todoListService.delete(task.id).subscribe(
         response => {

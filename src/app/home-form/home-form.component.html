@@ -1,19 +1,26 @@
 <p-menubar [model]="menuItems"></p-menubar>
 <br>
 <p-panel header="TAREFAS PENDENTES">
-    <div class="card-container">
-      <p-card *ngFor="let task of tasks" class="task-card">
-        <div>
-          <h5>{{ task.title }}</h5>
-          <p>{{ task.description }}</p>
-        </div>
-        <div class="task-actions">
-          <p-button icon="pi pi-pencil" (onClick)="edit(task)"></p-button>
-          <p-button icon="pi pi-trash" (onClick)="delete(task)"></p-button>
-        </div>
-      </p-card>      
-    </div>
-  </p-panel>
+  <div class="card-container">
+    <p-card *ngFor="let task of tasks" 
+      [style]="{ 
+        borderRadius: '10px',  
+        width: '250px',  
+        backgroundColor: 'PowderBlue',  
+        color: 'black',
+        marginBottom: '20px'
+      }">
+      <div>
+        <h2>{{ task.title }}</h2>
+        <p style="word-wrap: break-word; font-size: 20px;">{{ task.description }}</p>
+      </div>
+      <div class="task-actions">
+        <p-button icon="pi pi-pencil" (onClick)="edit(task)" pTooltip="Editar tarefa" tooltipPosition="bottom"></p-button>
+        <p-button icon="pi pi-trash" (onClick)="delete(task)" pTooltip="Excluir tarefa" tooltipPosition="bottom"></p-button>
+      </div>
+    </p-card>      
+  </div>
+</p-panel>
 <p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '30vw'}" [modal]="true" (onHide)="loadTasks()">
    <list-form (formSave)="closeModal()"></list-form>
 </p-dialog>
