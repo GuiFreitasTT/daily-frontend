@@ -20,10 +20,6 @@ export class ToDoListFormComponent implements OnInit {
       
   }
 
-  ngOnChanges(){
-
-  }
-
   save(task: Task){
     if(!task.description || !task.title){
       this.messageService.add({severity:'warn', summary: 'Aviso', detail:'Campo de titulo e descrição são obrigatórios'});

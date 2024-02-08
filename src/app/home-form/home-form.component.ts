@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { Task } from 'src/domain/models/task.model';
 import { TodoListService } from 'src/domain/services/to-do-list.service';
 
@@ -15,7 +15,7 @@ export class HomeFormComponent implements OnInit {
   tasks: any;
   selectedTask!: Task;
 
-  constructor(private todoListService: TodoListService, private confirmationService: ConfirmationService) {
+  constructor(private todoListService: TodoListService, private messageService: MessageService) {
     this.menuItems = [
       {
         label: 'Tarefas',
@@ -55,7 +55,21 @@ export class HomeFormComponent implements OnInit {
   }
 
   edit(task: Task){
-    this.selectedTask = task;
+    this.selectedTask = {...task};
     this.isEdit = true;
+  }
+
+  delete(task: Task){
+    if(task.id !== undefined){
+      this.todoListService.delete(task.id).subscribe(
+        response => {
+          this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro excluído com sucesso'});
+          this.loadTasks();
+        },
+        error => {
+          this.messageService.add({severity:'error', summary: 'Erro', detail:'Erro ao excluir a tarefa, tente novamente mais tarde'});
+        }
+      );
+    }
   }
 }

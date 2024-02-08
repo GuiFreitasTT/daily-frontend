@@ -23,4 +23,8 @@ export class TodoListService {
   listAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  delete(id: number): Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }
