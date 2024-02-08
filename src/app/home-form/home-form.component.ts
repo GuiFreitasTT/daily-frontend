@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 import { Task } from 'src/domain/models/task.model';
 import { TodoListService } from 'src/domain/services/to-do-list.service';
 
@@ -10,9 +11,11 @@ import { TodoListService } from 'src/domain/services/to-do-list.service';
 export class HomeFormComponent implements OnInit {
   menuItems: any[];
   visible: boolean = false;
+  isEdit: boolean = false;
   tasks: any;
+  selectedTask!: Task;
 
-  constructor(private todoListService: TodoListService) {
+  constructor(private todoListService: TodoListService, private confirmationService: ConfirmationService) {
     this.menuItems = [
       {
         label: 'Tarefas',
@@ -27,19 +30,11 @@ export class HomeFormComponent implements OnInit {
     ];
    }
 
-  ngOnInit() {   
+   ngOnInit() {   
     this.loadTasks(); 
   }
 
-  openModal(){
-    this.visible = true;
-  }
-
-  closeModal(){
-    this.visible = false;
-  }
-
-  loadTasks() {
+   loadTasks() {
     this.todoListService.listAll().subscribe(
       (tasks: Task[]) => {
         this.tasks = tasks;
@@ -48,5 +43,19 @@ export class HomeFormComponent implements OnInit {
         console.error('Erro ao buscar as tarefas:', error);
       }
     );
+  }
+
+  openModal(){
+    this.visible = true;
+  }
+
+  closeModal(){
+    this.visible = false;
+    this.isEdit = false;
+  }
+
+  edit(task: Task){
+    this.selectedTask = task;
+    this.isEdit = true;
   }
 }

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -36,7 +36,6 @@ import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule,
     FormsModule,
     CommonModule,
     RouterModule,
@@ -55,7 +54,7 @@ import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.compone
     ToastModule
     
   ],
-  providers: [MessageService],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

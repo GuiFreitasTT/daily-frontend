@@ -16,6 +16,10 @@ export class TodoListService {
     return this.http.post(`${this.baseUrl}`, task);
   }
 
+  updateTask(task: Task, id: number): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, task);
+  }
+
   listAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }

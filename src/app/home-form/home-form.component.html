@@ -3,12 +3,22 @@
 <p-panel header="TAREFAS PENDENTES">
     <div class="card-container">
       <p-card *ngFor="let task of tasks" class="task-card">
-        <h5>{{ task.title }}</h5>
-        <p>{{ task.description }}</p>
-      </p-card>
+        <div>
+          <h5>{{ task.title }}</h5>
+          <p>{{ task.description }}</p>
+        </div>
+        <div class="task-actions">
+          <p-button icon="pi pi-pencil" (onClick)="edit(task)"></p-button>
+          <p-button icon="pi pi-trash"></p-button>
+        </div>
+      </p-card>      
     </div>
   </p-panel>
 <p-dialog header="Criar nova tarefa" [(visible)]="visible" [style]="{width: '30vw'}" [modal]="true" (onHide)="loadTasks()">
    <list-form (formSave)="closeModal()"></list-form>
-  </p-dialog>
+</p-dialog>
+
+<p-dialog header="Editar Tarefa" [(visible)]="isEdit" [style]="{width: '30vw'}" [modal]="true" (onHide)="loadTasks()">
+  <list-form [task]="selectedTask" (formSave)="closeModal()"></list-form>
+</p-dialog>
   

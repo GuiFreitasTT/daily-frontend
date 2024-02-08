@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/domain/models/task.model';
 import { TodoListService } from 'src/domain/services/to-do-list.service';
 import { MessageService } from 'primeng/api';
@@ -9,32 +9,50 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./to-do-list-form.component.css']
 })
 export class ToDoListFormComponent implements OnInit {
-
+  @Input() task!: Task; 
   @Output() formSave = new EventEmitter<void>();
-  model: Task;
 
   constructor(private todoListService: TodoListService, private messageService: MessageService) {
-    this.model = new Task();  
+    this.task = new Task(); 
    }
 
   ngOnInit() {
+      
   }
 
-  save(model: Task){
-    if(!model.description || !model.title){
+  ngOnChanges(){
+
+  }
+
+  save(task: Task){
+    if(!task.description || !task.title){
       this.messageService.add({severity:'warn', summary: 'Aviso', detail:'Campo de titulo e descrição são obrigatórios'});
       return
     }
-    this.todoListService.saveTask(model).subscribe(
-      response => {
-        this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro salvo com sucesso'});
-        this.model = new Task();
-        this.formSave.emit();
-      },
-      error => {
-        this.messageService.add({severity:'error', summary: 'Erro', detail:'Erro ao salvar a tarefa, tente novamente mais tarde'});
-      }
-    );
+    var id = task.id;
+    if (id !== undefined) {
+      this.todoListService.updateTask(task, id).subscribe(
+        response => {
+          this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro atualizado com sucesso'});
+          this.task = new Task();
+          this.formSave.emit();
+        },
+        error => {
+          this.messageService.add({severity:'error', summary: 'Erro', detail:'Erro ao atualizar a tarefa, tente novamente mais tarde'});
+        }
+      );
+    }else{
+      this.todoListService.saveTask(task).subscribe(
+        response => {
+          this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro salvo com sucesso'});
+          this.task = new Task();
+          this.formSave.emit();
+        },
+        error => {
+          this.messageService.add({severity:'error', summary: 'Erro', detail:'Erro ao salvar a tarefa, tente novamente mais tarde'});
+        }
+      );
+    }
   }
 
 }
