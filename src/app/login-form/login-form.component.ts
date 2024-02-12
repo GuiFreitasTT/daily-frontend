@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { User } from 'src/domain/models/user.model';
+import { LoginService } from 'src/domain/services/login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -8,17 +11,33 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-username!: string;
-password!: string;
+model: User = new User();
 
-constructor(private router: Router) { }
+constructor(
+  private router: Router, 
+  private loginService: LoginService,
+  private messageService: MessageService
+  ) { }
+
+
 
   ngOnInit() {
-
+    
   }
+  
 
   login(){
-    this.router.navigate(['/home']);
+    this.loginService.login(this.model).subscribe(
+      data => {
+        if(data && data.token) {
+          localStorage.setItem('jwtToken', data.token);
+          this.router.navigate(['/home']);
+        }   
+      },
+      error => {
+        this.messageService.add({severity:'error', summary: 'Erro', detail:'Usuário não encontrado, verifique as credenciais de login e tente novamente.'});
+      }
+    );
   }
 
 }

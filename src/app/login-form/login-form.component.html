@@ -4,11 +4,11 @@
       <form style="padding-top: 100%;">
         <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">MY DAILY</h2>
         <div class="p-field">
-          <input id="username" type="text" pInputText placeholder="Usuário" [(ngModel)]="username" name="username" required>
+          <input id="username" type="text" pInputText placeholder="Usuário" [(ngModel)]="model.login" name="username" required>
         </div>
         <br>
         <div class="p-field">
-          <input id="password" type="password" pPassword placeholder="Senha" [(ngModel)]="password" name="password" required>
+          <input id="password" type="password" pPassword placeholder="Senha" [(ngModel)]="model.password" name="password" required>
         </div>
         <br>
         <button type="submit" pButton label="Login" (click)="login()" class="p-button-lg"></button>
