@@ -22,4 +22,9 @@ export class LoginService {
       })
     );
   }
+
+  register(data: any): Observable<any> {
+    const url = `${this.baseUrl}/register`;
+    return this.http.post<any>(url, data);
+  }
 }

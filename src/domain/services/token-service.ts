@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -19,5 +20,19 @@ export class TokenService {
 
   removeToken(): void {
     localStorage.removeItem(this.TOKEN_KEY);
+  }
+
+  public headerToken() {
+    const token = this.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return headers;
+  }
+
+  isLoggedIn(): boolean {
+    const token = this.getToken();
+    return token !== null;
   }
 }

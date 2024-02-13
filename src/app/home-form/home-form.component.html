@@ -1,4 +1,8 @@
-<p-menubar [model]="menuItems"></p-menubar>
+<p-menubar [model]="menuItems">
+  <ng-template pTemplate="end">
+    <p-button icon="pi pi pi-power-off" (onClick)="logout()" class="w-full"></p-button>
+</ng-template>
+</p-menubar>
 <br>
 <p-panel header="TAREFAS PENDENTES">
   <div class="card-container">

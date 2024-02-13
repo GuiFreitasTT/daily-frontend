@@ -40,7 +40,6 @@ export class ToDoListFormComponent implements OnInit {
     }else{
       this.todoListService.saveTask(task).subscribe(
         response => {
-          this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro salvo com sucesso'});
           this.task = new Task();
           this.formSave.emit();
         },

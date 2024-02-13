@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Task } from 'src/domain/models/task.model';
 import { TodoListService } from 'src/domain/services/to-do-list.service';
@@ -17,13 +18,17 @@ export class HomeFormComponent implements OnInit {
   selectedTask!: Task;
   selectedTaskForDelete!: Task;
 
-  constructor(private todoListService: TodoListService, private messageService: MessageService) {
+  constructor(
+    private todoListService: TodoListService, 
+    private messageService: MessageService,
+    private router: Router
+    ) {
     this.menuItems = [
       {
         label: 'Criar nova tarefa',
         icon: 'pi pi-fw pi-plus',
         command: () => this.openModal()
-    },
+      }
     ];
    }
 
@@ -69,5 +74,10 @@ export class HomeFormComponent implements OnInit {
         }
       );
     }
+  }
+
+  logout() {
+    localStorage.removeItem('jwtToken');
+    this.router.navigate(['/login']);
   }
 }

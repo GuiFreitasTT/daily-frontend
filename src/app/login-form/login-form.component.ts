@@ -19,13 +19,10 @@ constructor(
   private messageService: MessageService
   ) { }
 
-
-
   ngOnInit() {
     
   }
   
-
   login(){
     this.loginService.login(this.model).subscribe(
       data => {
@@ -35,7 +32,7 @@ constructor(
         }   
       },
       error => {
-        this.messageService.add({severity:'error', summary: 'Erro', detail:'Usuário não encontrado, verifique as credenciais de login e tente novamente.'});
+        this.messageService.add({severity:'error', summary: 'Erro', detail:'Usuário ou senha incorretos, tente novamente.'});
       }
     );
   }

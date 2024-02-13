@@ -1,0 +1,17 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:focus {
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+.p-field input[type="text"] {
+    width: 224px;
+}

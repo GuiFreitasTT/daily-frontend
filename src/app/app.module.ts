@@ -26,13 +26,15 @@ import { ToastModule } from 'primeng/toast';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeFormComponent } from './home-form/home-form.component';
 import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
       AppComponent,
       LoginFormComponent,
       HomeFormComponent,
-      ToDoListFormComponent
+      ToDoListFormComponent,
+      RegisterFormComponent
    ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { ToDoListFormComponent } from './to-do-list-form/to-do-list-form.compone
     HttpClientModule,
     MessagesModule,
     ToastModule,
-    TooltipModule
+    TooltipModule,
+    ReactiveFormsModule
     
   ],
   providers: [MessageService, ConfirmationService],
