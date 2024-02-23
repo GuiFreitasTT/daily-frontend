@@ -17,6 +17,7 @@ export class HomeFormComponent implements OnInit {
   tasks: any;
   selectedTask!: Task;
   selectedTaskForDelete!: Task;
+  crossedOutText: boolean = false;
 
   constructor(
     private todoListService: TodoListService, 
@@ -32,11 +33,17 @@ export class HomeFormComponent implements OnInit {
     ];
    }
 
+   toggleStrikeThrough(task: any) {
+    task.crossedOut = !task.crossedOut;
+    this.delete(task);
+  }
+
    ngOnInit() {   
     this.loadTasks(); 
   }
 
    loadTasks() {
+    this.crossedOutText = false;
     this.todoListService.listAll().subscribe(
       (tasks: Task[]) => {
         this.tasks = tasks;
@@ -62,8 +69,9 @@ export class HomeFormComponent implements OnInit {
   }
 
   delete(task: Task){
-    this.deleted = true;
-    if(task.id !== undefined){
+  this.deleted = true;
+  setTimeout(() => {
+       if(task.id !== undefined){
       this.todoListService.delete(task.id).subscribe(
         response => {
           this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro excluído com sucesso'});
@@ -74,6 +82,7 @@ export class HomeFormComponent implements OnInit {
         }
       );
     }
+  }, 700);
   }
 
   logout() {
