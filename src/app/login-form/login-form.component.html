@@ -1,20 +1,19 @@
-<div class="p-grid p-align-center">
-  <div class="p-col" style="text-align: center; display: flex; align-items: center; justify-content: center;">
-    <div class="card" style="width: 300px; height: 300px; display: inline-block;">
-      <form style="padding-top: 100%; margin-bottom: 40px;">
-        <h2 style="font-family: Verdana;">MY DAILY</h2>
-        <div class="p-field">
-          <input id="username" type="text" pInputText placeholder="Usuário" [(ngModel)]="model.login" name="username" required>
-        </div>
-        <br>
-        <div class="p-field">
-          <p-password [feedback]="false" placeholder="Senha" [(ngModel)]="model.password" [toggleMask]="true" name="password"></p-password>
-        </div>
-        <br>
-        <button type="submit" pButton label="Entrar" (click)="login()" class="p-button-lg"></button>
+<div style="text-align: center; display: flex; align-items: center; justify-content: center;">
+      <div class="container">
+        <form>
+          <h2 style="font-family:'Franklin Gothic Medium'; color: rgb(0, 0, 0);">MY DAILY</h2>
+          <div class="p-field">
+            <input id="username" type="text" pInputText placeholder="Usuário" [(ngModel)]="model.login" name="username" required>
+          </div>
+          <br>
+          <div class="p-field">
+            <p-password [feedback]="false" placeholder="Senha" [(ngModel)]="model.password" [toggleMask]="true" name="password"></p-password>
+          </div>
+          <br>
+          <button type="submit" pButton label="Entrar" style="background-color: rgb(63, 63, 63);" (click)="login()" class="p-button-lg"></button>
+        <p style="font-size: 17px; font-family:'Gill Sans'; color: rgb(0, 0, 0);">Novo por aqui?
+          <a style="font-size: 17px; font-family: 'Gill Sans'; color: rgb(0, 0, 0);" [routerLink]="['/register']">Inscreva-se</a>
+        </p>
       </form>
-      <p style="font-size: 17px; font-family: Verdana">Novo por aqui?</p>
-      <a style="font-size: 17px; font-family: Verdana" [routerLink]="['/register']">Clique para se registrar</a>
-    </div>
-  </div>
+      </div>
 </div>

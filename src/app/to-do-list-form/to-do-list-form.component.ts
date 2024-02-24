@@ -21,8 +21,8 @@ export class ToDoListFormComponent implements OnInit {
   }
 
   save(task: Task){
-    if(!task.description || !task.title){
-      this.messageService.add({severity:'warn', summary: 'Aviso', detail:'Campo de titulo e descrição são obrigatórios'});
+    if(!task.description){
+      this.messageService.add({severity:'warn', summary: 'Aviso', detail:'Campo descrição é obrigatório'});
       return
     }
     var id = task.id;
