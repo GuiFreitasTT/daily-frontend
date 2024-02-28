@@ -49,7 +49,7 @@ export class HomeFormComponent implements OnInit {
         this.tasks = tasks;
       },
       error => {
-        console.error('Erro ao buscar as tarefas:', error);
+        this.messageService.add({severity:'error', summary: 'Erro', detail:'Erro carregar as tarefas, tente novamente mais tarde'});
       }
     );
   }
@@ -74,7 +74,6 @@ export class HomeFormComponent implements OnInit {
        if(task.id !== undefined){
       this.todoListService.delete(task.id).subscribe(
         response => {
-          this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro excluído com sucesso'});
           this.loadTasks();
         },
         error => {
@@ -82,7 +81,7 @@ export class HomeFormComponent implements OnInit {
         }
       );
     }
-  }, 700);
+  }, 500);
   }
 
   logout() {

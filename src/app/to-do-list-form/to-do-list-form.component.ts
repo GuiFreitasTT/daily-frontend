@@ -29,7 +29,6 @@ export class ToDoListFormComponent implements OnInit {
     if (id !== undefined) {
       this.todoListService.updateTask(task, id).subscribe(
         response => {
-          this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Registro atualizado com sucesso'});
           this.task = new Task();
           this.formSave.emit();
         },

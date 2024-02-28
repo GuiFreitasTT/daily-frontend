@@ -1,6 +1,6 @@
 <p-menubar [model]="menuItems">
   <ng-template pTemplate="end">
-    <p-button icon="pi pi pi-power-off" (onClick)="logout()" class="w-full"></p-button>
+    <p-button icon="pi pi pi-power-off" (onClick)="logout()" styleClass="botao-cinza"></p-button>
 </ng-template>
 </p-menubar>
 <br>
@@ -11,7 +11,7 @@
         borderRadius: '10px',  
         width: '300px',  
         color: 'black',
-        marginBottom: '20px'
+        marginBottom: '20px'      
       }">
       <div style="display: flex; align-items: center;">
         <p-checkbox [binary]="true" inputId="binary" (onChange)="toggleStrikeThrough(task)" class="custom-checkbox"></p-checkbox>

@@ -8,12 +8,12 @@
         <br>
         <div class="p-field">
           <p-password [feedback]="false" placeholder="Senha" [(ngModel)]="model.password" [toggleMask]="true" formControlName="password"></p-password>
-          <div *ngIf="form.get('password')?.touched && form.get('password')?.value?.length <= 4" style="color: rgb(245, 41, 41); padding-top: 10px; font-size: 17 px;">
+          <div *ngIf="messageRequired" style="color: rgb(245, 41, 41); padding-top: 10px; font-size: 19 px; font-family:'Franklin Gothic Medium';">
             A senha deve ter no mínimo cinco digitos
         </div> 
         </div>
         <br>
-        <button type="submit" pButton label="Continuar" style="background-color: rgb(63, 63, 63);" [disabled]="!form.valid" (click)="register()" class="p-button-lg"></button>
+        <button type="submit" pButton label="Continuar" style="background-color: rgb(63, 63, 63);" (click)="register()" class="p-button-lg"></button>
       </form>
     </div>
 </div>
