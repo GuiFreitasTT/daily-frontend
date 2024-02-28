@@ -1,4 +1,11 @@
-## ✔️ Técnicas e tecnologias utilizadas
+## ✔️ Techniques and technologies used
+
+- ``Angular``
+- ``Primeng``
+- ``Typescript``
+- ``Object-Oriented Programming (OOP)``
+- ``Routes``
+- ``Form validations``
 
 ``This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.``
 
