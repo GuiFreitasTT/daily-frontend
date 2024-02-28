@@ -16,3 +16,6 @@
   justify-content: flex-end;  
 }
  
+.line-through {
+  text-decoration: line-through;
+}

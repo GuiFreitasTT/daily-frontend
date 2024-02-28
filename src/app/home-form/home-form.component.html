@@ -1,6 +1,6 @@
 <p-menubar [model]="menuItems">
   <ng-template pTemplate="end">
-    <p-button icon="pi pi pi-power-off" (onClick)="logout()" class="w-full"></p-button>
+    <p-button icon="pi pi pi-power-off" (onClick)="logout()" styleClass="botao-cinza"></p-button>
 </ng-template>
 </p-menubar>
 <br>
@@ -9,18 +9,20 @@
     <p-card *ngFor="let task of tasks" 
       [style]="{ 
         borderRadius: '10px',  
-        width: '250px',  
-        backgroundColor: 'PowderBlue',  
+        width: '300px',  
         color: 'black',
-        marginBottom: '20px'
+        marginBottom: '20px'      
       }">
-      <div>
-        <h2>{{ task.title }}</h2>
-        <p style="word-wrap: break-word; font-size: 20px;">{{ task.description }}</p>
+      <div style="display: flex; align-items: center;">
+        <p-checkbox [binary]="true" inputId="binary" (onChange)="toggleStrikeThrough(task)" class="custom-checkbox"></p-checkbox>
+        <div style="flex-grow: 1; overflow: hidden;">
+          <p style="word-wrap: break-word; font-size: 20px; margin-left: 10px;" [ngClass]="{'line-through': task.crossedOut}">
+              {{ task.description }}
+          </p>
+      </div>
       </div>
       <div class="task-actions">
         <p-button icon="pi pi-pencil" (onClick)="edit(task)" pTooltip="Editar tarefa" tooltipPosition="bottom"></p-button>
-        <p-button icon="pi pi-trash" (onClick)="delete(task)" pTooltip="Excluir tarefa" tooltipPosition="bottom"></p-button>
       </div>
     </p-card>      
   </div>

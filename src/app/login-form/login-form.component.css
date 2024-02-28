@@ -1,6 +1,5 @@
 a {
-    text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 a:focus {
@@ -8,10 +7,16 @@ a:focus {
 }
 
 a:hover {
-    text-decoration: none;
-    color: blue;
+    color: none;
 }
 
 .p-field input[type="text"] {
     width: 224px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 98vh; 
 }

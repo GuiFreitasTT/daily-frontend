@@ -14,8 +14,8 @@ import { Validators } from '@angular/forms';
 export class RegisterFormComponent implements OnInit {
 
   form: FormGroup | null = null;
-
   model: User = new User();
+  messageRequired: boolean = false;
 
   constructor(
     private router: Router, 
@@ -27,11 +27,15 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.minLength(5), Validators.required]]
+      password: ['', [Validators.required]]
     });
   }
   
   register(){
+    if(this.form?.get('password')?.value?.length <= 4){
+      this.messageRequired = true;
+      return false;
+    }
     this.loginService.register(this.model).subscribe(
       data => {
         this.messageService.add({severity:'success', summary: 'Sucesso', detail:'Usuário registrado com sucesso, faça login para continuar.'});

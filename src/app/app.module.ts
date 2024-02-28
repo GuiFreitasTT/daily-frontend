@@ -22,6 +22,9 @@ import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { CheckboxModule } from 'primeng/checkbox';
+
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeFormComponent } from './home-form/home-form.component';
@@ -56,7 +59,11 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     MessagesModule,
     ToastModule,
     TooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    InputSwitchModule,
+    CheckboxModule
     
   ],
   providers: [MessageService, ConfirmationService],

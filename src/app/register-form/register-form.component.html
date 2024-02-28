@@ -1,18 +1,19 @@
-<div class="p-grid p-align-center">
-  <div class="p-col" style="text-align: center; display: flex; align-items: center; justify-content: center;">
-    <div class="card" style="width: 300px; height: 300px; display: inline-block;">
-      <form style="padding-top: 100%;" *ngIf="form" [formGroup]="form">
-        <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Cadastro</h2>
+<div style="text-align: center; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+      <form *ngIf="form" [formGroup]="form">
+        <h2 style="font-family:'Franklin Gothic Medium'; color: rgb(0, 0, 0);">Cadastro</h2>
         <div class="p-field">
           <input id="username" type="text" pInputText placeholder="Usuário" [(ngModel)]="model.login" formControlName="username">
         </div>
         <br>
         <div class="p-field">
           <p-password [feedback]="false" placeholder="Senha" [(ngModel)]="model.password" [toggleMask]="true" formControlName="password"></p-password>
+          <div *ngIf="messageRequired" style="color: rgb(245, 41, 41); padding-top: 10px; font-size: 19 px; font-family:'Franklin Gothic Medium';">
+            A senha deve ter no mínimo cinco digitos
+        </div> 
         </div>
         <br>
-        <button type="submit" pButton label="Continuar" [disabled]="!form.valid" (click)="register()" class="p-button-lg"></button>
+        <button type="submit" pButton label="Continuar" style="background-color: rgb(63, 63, 63);" (click)="register()" class="p-button-lg"></button>
       </form>
     </div>
-  </div>
 </div>
