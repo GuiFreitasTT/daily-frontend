@@ -4,12 +4,6 @@
   gap: 20px;
 }
 
-
-.task-card {
-  width: 200px;
-  height: 150px;
-}
-
 .task-actions {
   display: flex;
   gap: 8px;
@@ -18,4 +12,11 @@
  
 .line-through {
   text-decoration: line-through;
+}
+
+.task-card {
+  border-radius: 10px;
+  width: 250px;
+  color: black;
+  margin-bottom: 20px;
 }

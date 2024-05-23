@@ -6,13 +6,7 @@
 <br>
 <p-panel header="TAREFAS PENDENTES">
   <div class="card-container">
-    <p-card *ngFor="let task of tasks" 
-      [style]="{ 
-        borderRadius: '10px',  
-        width: '300px',  
-        color: 'black',
-        marginBottom: '20px'      
-      }">
+    <p-card *ngFor="let task of tasks" [ngClass]="['task-card']">
       <div style="display: flex; align-items: center;">
         <p-checkbox [binary]="true" inputId="binary" (onChange)="toggleStrikeThrough(task)" class="custom-checkbox"></p-checkbox>
         <div style="flex-grow: 1; overflow: hidden;">
